@@ -19,13 +19,15 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\RazorComponents.MaterialDesign\RazorComponents.MaterialDesign.csproj" />
+
+    <Content Remove="wwwroot\_content\**" />
+    <Content Include="wwwroot\_content\**" Visible="false" />
   </ItemGroup>
 
   <Target Name="CopyStaticAssetsFromMaterialDesignSource" BeforeTargets="CoreCompile">
     <ItemGroup>
       <_StaticFilesToCopy Include="..\..\src\RazorComponents.MaterialDesign\wwwroot\**\*" />
     </ItemGroup>
-    
     <Copy SourceFiles="@(_StaticFilesToCopy)" DestinationFolder="wwwroot\_content\RazorComponents.MaterialDesign\%(RecursiveDir)" SkipUnchangedFiles="true" />
   </Target>
 
