@@ -1,11 +1,13 @@
 ﻿@inherits LayoutComponentBase
 
-<MdcDrawer IsOpen=sidebarIsOpen>
-    <NavMenu OnItemClicked=@ToggleSidebar />
+<MdcDrawer ref="@sidebar">
+    <div class="mdc-list">
+        <MdcNavLink Href="" Icon="home" Text="Home" Match=NavLinkMatch.All />
+    </div>
 </MdcDrawer>
 
 <div class="mdc-drawer-app-content">
-    <MdcTopAppBar Title="Razor Components Material Design" OnNavClicked=@ToggleSidebar ScrollTarget="#main-content">
+    <MdcTopAppBar Title="Razor Components Material Design" OnNavClicked="@(() => sidebar.Toggle())" ScrollTarget="#main-content">
         <span class="mdc-top-app-bar-content">
             <i class="material-icons">account_circle</i>
             Hello!
@@ -22,10 +24,5 @@
 </div>
 
 @functions {
-    bool sidebarIsOpen;
-
-    void ToggleSidebar()
-    {
-        sidebarIsOpen = !sidebarIsOpen;
-    }
+    MdcDrawer sidebar;
 }
