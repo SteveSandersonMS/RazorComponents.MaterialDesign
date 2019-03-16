@@ -52,30 +52,6 @@ h1 {
         background-color: rgba(255,255,255,0.15) !important;
     }
 
-.demo-card {
-    width: 300px;
-    margin: 1rem 1rem 0 0;
-}
-
-.demo-card__primary {
-    padding: 0 1rem;
-}
-
-.demo-card__secondary {
-    padding: 0 1rem 8px;
-}
-
-.demo-card__secondary, .demo-card__subtitle {
-    color: rgba(0,0,0,.54);
-    color: var(--mdc-theme-text-secondary-on-background,rgba(0,0,0,.54));
-}
-
-.demo-cards-grid {
-    display: flex;
-    flex-wrap: wrap;
-    padding-bottom: 1rem;
-}
-
 .demo-list {
     border: 1px solid rgba(0,0,0,.2);
     border-bottom: none;
@@ -105,9 +81,4 @@ h1 {
 /* When sidebar is open, shrink header bar so it all stays on screen */
 .mdc-drawer.mdc-drawer--open:not(.mdc-drawer--closing)+.mdc-drawer-app-content .mdc-top-app-bar {
     width: calc(100% - 256px);
-}
-
-.invalid-message {
-    color: red;
-    margin-left: 1em;
 }
