@@ -1,0 +1,29 @@
+﻿@inherits MdcComponentBase
+@inject IJSRuntime jsRuntime
+    
+<div ref="textFieldElem" class="mdc-text-field">
+    <input type="text" id=@id class="mdc-text-field__input"
+           value=@Value onchange=@HandleTextChanged />
+
+    <label class="mdc-floating-label" for=@id>@Label</label>
+    <div class="mdc-line-ripple"></div>
+</div>
+
+@functions {
+    string id = Guid.NewGuid().ToString();
+    ElementRef textFieldElem;
+
+    [Parameter] string Label { get; set; }
+    [Parameter] string Value { get; set; }
+    [Parameter] EventCallback<string> ValueChanged { get; set; }
+
+    Task HandleTextChanged(UIChangeEventArgs changeEvent)
+    {
+        Value = (string)changeEvent.Value;
+        return ValueChanged.InvokeAsync(Value);
+    }
+
+    protected override Task OnAfterFirstRenderAsync()
+        => jsRuntime.InvokeAsync<object>(
+                "BlazorMaterial.textField.init", textFieldElem);
+}

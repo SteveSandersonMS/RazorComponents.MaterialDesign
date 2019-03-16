@@ -1,0 +1,31 @@
+﻿@inherits LayoutComponentBase
+
+<MdcDrawer IsOpen=sidebarIsOpen>
+    <NavMenu OnItemClicked=@ToggleSidebar />
+</MdcDrawer>
+
+<div class="mdc-drawer-app-content">
+    <MdcTopAppBar Title="Razor Components Material Design" OnNavClicked=@ToggleSidebar ScrollTarget="#main-content">
+        <span class="mdc-top-app-bar-content">
+            <i class="material-icons">account_circle</i>
+            Hello!
+        </span>
+    </MdcTopAppBar>
+
+    <main class="main-content" id="main-content">
+        <div class="mdc-top-app-bar--fixed-adjust">
+            <div class="mdc-card main-content-card">
+                @Body
+            </div>
+        </div>
+    </main>
+</div>
+
+@functions {
+    bool sidebarIsOpen;
+
+    void ToggleSidebar()
+    {
+        sidebarIsOpen = !sidebarIsOpen;
+    }
+}

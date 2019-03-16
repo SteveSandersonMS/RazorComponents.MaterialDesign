@@ -1,0 +1,7 @@
+﻿<div class="mdc-list" onclick=@OnItemClicked>
+    <MdcNavLink Href="" Icon="home" Text="Home" Match=NavLinkMatch.All />
+</div>
+
+@functions {
+    [Parameter] EventCallback OnItemClicked { get; set; }
+}
