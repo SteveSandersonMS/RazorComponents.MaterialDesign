@@ -1,2 +1,4 @@
 <Project>
+    <Content Remove="wwwroot\_content\**" />
+    <Content Include="wwwroot\_content\**" Visible="false" />
 </Project>
