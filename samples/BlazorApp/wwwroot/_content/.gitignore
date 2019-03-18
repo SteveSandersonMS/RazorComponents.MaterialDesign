@@ -1,0 +1,9 @@
+# This file tells Git not to track any files under _content,
+# as they are restored automatically on build
+
+# This is a temporary hack to copy static assets from the Razor
+# Components Material Design package into your project until
+# we implement the real mechansim for publishing static assets
+# in NuGet packages (should be very soon).
+
+*/
