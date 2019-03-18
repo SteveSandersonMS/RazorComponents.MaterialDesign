@@ -18,12 +18,12 @@
   <!-- Pack settings -->
   <PropertyGroup>
     <NuspecFile>RazorComponents.MaterialDesign.nuspec</NuspecFile>
-    <NoPackageAnalysis>true</NoPackageAnalysis>
   </PropertyGroup>
   <Target Name="PublishAll" BeforeTargets="_IntermediatePack">
     <PropertyGroup>
       <NuspecProperties>
       version=$(PackageVersion);
+      configuration=$(Configuration);
       componentsversion=$(ComponentsPackageVersion);</NuspecProperties>
     </PropertyGroup>
   </Target>

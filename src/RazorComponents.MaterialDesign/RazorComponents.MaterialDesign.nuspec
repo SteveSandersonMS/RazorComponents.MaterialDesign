@@ -17,6 +17,8 @@
     </dependencies>
   </metadata>
   <files>
+    <file src="bin\$configuration$\**\*.dll" target="lib" />
+    <file src="bin\$configuration$\**\*.pdb" target="lib" />
     <file src="..\..\THIRD-PARTY-NOTICES.txt" />
     <file src="build\**" target="build" />
     <file src="targets\**" target="targets" />
