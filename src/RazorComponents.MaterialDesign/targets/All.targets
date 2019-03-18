@@ -1,0 +1,5 @@
+<Project>
+    <Target Name="MyTest" BeforeTargets="CoreCompile">
+        <Message Importance="high" Text="THE PACKAGE IS WORKING" />
+    </Target>
+</Project>

@@ -6,6 +6,7 @@
     <IsPackable>true</IsPackable>
     <BlazorLinkOnBuild>false</BlazorLinkOnBuild>
     <LangVersion>7.3</LangVersion>
+    <PackageVersion>0.1.0-alpha-$([System.DateTime]::Now.ToString(yyyyMMddhhmmss))</PackageVersion>
     <ComponentsPackageVersion>3.0.0-preview3-19153-02</ComponentsPackageVersion>
   </PropertyGroup>
 

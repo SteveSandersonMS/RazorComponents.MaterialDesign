@@ -14,7 +14,6 @@
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <dependencies>
       <dependency id="Microsoft.AspNetCore.Components.Browser" version="$componentsversion$" />
-      <dependency id="Microsoft.AspNetCore.Components.Build" version="$componentsversion$" />
     </dependencies>
   </metadata>
   <files>
