@@ -40,10 +40,11 @@ namespace RazorComponentsApp
                 FileProvider = new PhysicalFileProvider(Path.GetFullPath("..\\BlazorApp\\wwwroot"))
             });
 
-            app.UseRouting(routes =>
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRazorPages();
-                routes.MapComponentHub<BlazorApp.App>("app");
+                endpoints.MapComponentHub<BlazorApp.App>("app");
+                endpoints.MapFallbackToPage("/Index");
             });
         }
     }
