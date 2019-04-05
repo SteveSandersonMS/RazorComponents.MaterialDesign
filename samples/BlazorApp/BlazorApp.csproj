@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -8,11 +8,15 @@
 
     <!-- The linker is not beneficial for server-side execution. Re-enable this if you switch to WebAssembly execution. -->
     <BlazorLinkOnBuild>false</BlazorLinkOnBuild>
+
+    <!-- Temporary workaround -->
+    <GenerateRazorAssemblyInfo>false</GenerateRazorAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="0.9.0-preview4-19203-03" />
-    <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="0.9.0-preview4-19203-03" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="0.9.0-preview4-19204-04" />
+    <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="0.9.0-preview4-19204-04" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.AspNetCore.Blazor.DevServer" Version="0.9.0-preview4-19204-04" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>

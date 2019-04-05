@@ -2,13 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <OutputType>Library</OutputType>
-    <IsPackable>true</IsPackable>
-    <BlazorLinkOnBuild>false</BlazorLinkOnBuild>
     <LangVersion>7.3</LangVersion>
     <RazorLangVersion>3.0</RazorLangVersion>
-    <PackageVersion>0.1.0-alpha-$([System.DateTime]::Now.ToString(yyyyMMddhhmmss))</PackageVersion>
     <ComponentsPackageVersion>3.0.0-preview4-19203-03</ComponentsPackageVersion>
+
+    <!-- Temporary workaround -->
+    <GenerateRazorAssemblyInfo>false</GenerateRazorAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,6 +20,7 @@
   </PropertyGroup>
   <Target Name="PublishAll" BeforeTargets="_IntermediatePack">
     <PropertyGroup>
+      <PackageVersion>0.1.0-alpha-$([System.DateTime]::Now.ToString(yyyyMMddhhmmss))</PackageVersion>
       <NuspecProperties>
       version=$(PackageVersion);
       configuration=$(Configuration);
