@@ -16,7 +16,7 @@ namespace RazorComponentsApp
             services.AddMvc()
                 .AddNewtonsoftJson()
                 .AddRazorPagesOptions(options => { options.RootDirectory = "/"; });
-            services.AddRazorComponents();
+            services.AddServerSideBlazor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,8 +33,8 @@ namespace RazorComponentsApp
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
 
+            app.UseStaticFiles();
             app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(Path.GetFullPath("..\\BlazorApp\\wwwroot"))
@@ -43,7 +43,7 @@ namespace RazorComponentsApp
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapComponentHub<BlazorApp.App>("app");
+                endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/Index");
             });
         }

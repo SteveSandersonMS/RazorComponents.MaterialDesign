@@ -5,18 +5,16 @@
     <OutputType>Exe</OutputType>
     <LangVersion>7.3</LangVersion>
     <RazorLangVersion>3.0</RazorLangVersion>
+    <ComponentsPackageVersion>3.0.0-preview4-19213-05</ComponentsPackageVersion>
 
     <!-- The linker is not beneficial for server-side execution. Re-enable this if you switch to WebAssembly execution. -->
     <BlazorLinkOnBuild>false</BlazorLinkOnBuild>
-
-    <!-- Temporary workaround -->
-    <GenerateRazorAssemblyInfo>false</GenerateRazorAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="0.9.0-preview4-19204-04" />
-    <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="0.9.0-preview4-19204-04" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.AspNetCore.Blazor.DevServer" Version="0.9.0-preview4-19204-04" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="$(ComponentsPackageVersion)" />
+    <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="$(ComponentsPackageVersion)" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.AspNetCore.Blazor.DevServer" Version="$(ComponentsPackageVersion)" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>

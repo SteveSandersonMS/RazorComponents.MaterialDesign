@@ -4,7 +4,6 @@
 
 <p>See <code>List.cshtml</code> for sources.</p>
 
-@* TODO: Fix tooling
 <MdcList Items="@displayedProducts" Context="product">
     <Icon>shop</Icon>
     <Title>@product.DisplayName</Title>
@@ -16,7 +15,6 @@
         </div>
     </Actions>
 </MdcList>
-    *@
 
 @functions {
     IEnumerable<Product> displayedProducts = new List<Product>
