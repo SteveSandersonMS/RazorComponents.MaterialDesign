@@ -1,10 +1,10 @@
 ﻿@inherits MdcComponentBase
 @inject IJSRuntime jsRuntime
 
-<header ref="headerElem" class="mdc-top-app-bar app-bar" id="app-bar">
+<header @ref="headerElem" class="mdc-top-app-bar app-bar" id="app-bar">
     <div class="mdc-top-app-bar__row">
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-            <a onclick=@OnNavClicked class="demo-menu material-icons mdc-top-app-bar__navigation-icon">menu</a>
+            <a @onclick=@OnNavClicked class="demo-menu material-icons mdc-top-app-bar__navigation-icon">menu</a>
             <span class="mdc-top-app-bar__title">@Title</span>
         </section>
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" style="padding-right: 20px;">

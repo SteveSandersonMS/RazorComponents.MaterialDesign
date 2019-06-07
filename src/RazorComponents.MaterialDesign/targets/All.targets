@@ -1,3 +1,0 @@
-<Project>
-    <Import Project="TemporaryCopyStaticAssetsOnBuild.targets" />
-</Project>

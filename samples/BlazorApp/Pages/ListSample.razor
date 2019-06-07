@@ -10,7 +10,7 @@
     <Subtitle>@product.Description</Subtitle>
     <Actions>
         <div style="width: 10rem">
-            <MdcSwitch bind-Checked="@product.IsInStock"
+            <MdcSwitch @bind-Checked="@product.IsInStock"
                        Label="@(product.IsInStock ? "In stock" : "Out of stock")" />
         </div>
     </Actions>

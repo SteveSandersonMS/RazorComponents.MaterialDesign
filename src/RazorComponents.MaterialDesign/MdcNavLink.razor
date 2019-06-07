@@ -1,6 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Components.Routing
 
-<div onclick="@HandleClick">
+<div @onclick="@HandleClick">
     <NavLink href=@Href class="mdc-list-item" Match=@Match ActiveClass="mdc-list-item--activated">
         <i class="material-icons mdc-list-item__graphic" aria-hidden="true">@Icon</i>
         <span class="mdc-list-item__text">@Text</span>

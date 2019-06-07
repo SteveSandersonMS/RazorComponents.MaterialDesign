@@ -1,10 +1,10 @@
 ﻿@inject IJSRuntime jsRuntime
 
-<div class="mdc-switch" ref=switchElem>
+<div class="mdc-switch" @ref=switchElem>
     <div class="mdc-switch__track"></div>
     <div class="mdc-switch__thumb-underlay">
         <div class="mdc-switch__thumb">
-            <input type="checkbox" id="@id" checked=@Checked onchange=@HandleChangeAsync class="mdc-switch__native-control" role="switch" />
+            <input type="checkbox" id="@id" checked=@Checked @onchange=@HandleChangeAsync class="mdc-switch__native-control" role="switch" />
         </div>
     </div>
 </div>

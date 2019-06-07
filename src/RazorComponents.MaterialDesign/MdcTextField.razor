@@ -1,9 +1,9 @@
 ﻿@inherits MdcComponentBase
 @inject IJSRuntime jsRuntime
     
-<div ref="textFieldElem" class="mdc-text-field">
+<div @ref="textFieldElem" class="mdc-text-field">
     <input type="text" id=@id class="mdc-text-field__input"
-           value=@Value onchange=@HandleTextChanged />
+           value=@Value @onchange=@HandleTextChanged />
 
     <label class="mdc-floating-label" for=@id>@Label</label>
     <div class="mdc-line-ripple"></div>

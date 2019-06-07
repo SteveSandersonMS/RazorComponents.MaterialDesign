@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>7.3</LangVersion>
     <RazorLangVersion>3.0</RazorLangVersion>
-    <ComponentsPackageVersion>3.0.0-preview4-19213-05</ComponentsPackageVersion>
+    <ComponentsPackageVersion>3.0.0-preview6.19305.13</ComponentsPackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,16 +12,9 @@
   </ItemGroup>
 
   <!-- Pack settings -->
-  <PropertyGroup>
-    <NuspecFile>RazorComponents.MaterialDesign.nuspec</NuspecFile>
-  </PropertyGroup>
   <Target Name="PublishAll" BeforeTargets="_IntermediatePack">
     <PropertyGroup>
       <PackageVersion>0.1.0-alpha-$([System.DateTime]::Now.ToString(yyyyMMddhhmmss))</PackageVersion>
-      <NuspecProperties>
-      version=$(PackageVersion);
-      configuration=$(Configuration);
-      componentsversion=$(ComponentsPackageVersion);</NuspecProperties>
     </PropertyGroup>
   </Target>
 
