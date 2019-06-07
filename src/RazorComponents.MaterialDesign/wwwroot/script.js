@@ -24,7 +24,6 @@ window.BlazorMaterial = {
     dialog: {
         show: function (elem) {
             return new Promise(resolve => {
-                fixDialogActions(elem);
                 const dialog = mdc.dialog.MDCDialog.attachTo(elem);
                 const callback = event => {
                     dialog.unlisten('MDCDialog:closing', callback);
@@ -55,13 +54,3 @@ window.BlazorMaterial = {
         }
     }
 };
-
-function fixDialogActions(elem) {
-    const tempAttributeName = 'temp-data-mdc-dialog-action';
-    const buttons = elem.querySelectorAll('[' + tempAttributeName + ']');
-    buttons.forEach(button => {
-        const dialogAction = button.getAttribute(tempAttributeName);
-        button.removeAttribute(tempAttributeName);
-        button.setAttribute('data-mdc-dialog-action', dialogAction);
-    });
-}
