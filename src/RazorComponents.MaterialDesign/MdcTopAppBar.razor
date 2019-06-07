@@ -1,7 +1,7 @@
 ﻿@inherits MdcComponentBase
 @inject IJSRuntime jsRuntime
 
-<header @ref="headerElem" class="mdc-top-app-bar app-bar" id="app-bar">
+<header @ref="headerElem" class="@CssClass" id="app-bar">
     <div class="mdc-top-app-bar__row">
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
             <a @onclick=@OnNavClicked class="demo-menu material-icons mdc-top-app-bar__navigation-icon">menu</a>
@@ -18,6 +18,10 @@
     [Parameter] RenderFragment ChildContent { get; set; }
     [Parameter] EventCallback OnNavClicked { get; set; }
     [Parameter] string ScrollTarget { get; set; }
+    [Parameter] bool Fixed { get; set; }
+
+    string CssClass
+        => $"mdc-top-app-bar {( Fixed ? "mdc-top-app-bar--fixed" : "" )} app-bar";
 
     ElementRef headerElem;
 

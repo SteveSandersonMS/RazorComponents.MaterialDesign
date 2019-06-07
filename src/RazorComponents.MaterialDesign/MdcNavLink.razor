@@ -17,6 +17,6 @@
     void HandleClick()
     {
         // If we're nested inside a drawer, auto-close it when navigating
-        Drawer?.Toggle(false);
+        Drawer?.NotifyNavigation();
     }
 }
