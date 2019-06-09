@@ -22,4 +22,7 @@
 
     public Task<string> ShowAsync()
         => jsRuntime.InvokeAsync<string>("BlazorMaterial.dialog.show", dialogElem);
+
+    public Task HideAsync()
+        => jsRuntime.InvokeAsync<string>("BlazorMaterial.dialog.hide", dialogElem);
 }

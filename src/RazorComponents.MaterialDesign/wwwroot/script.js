@@ -23,8 +23,9 @@ window.BlazorMaterial = {
 
     dialog: {
         show: function (elem) {
+            elem._dialog = elem._dialog || mdc.dialog.MDCDialog.attachTo(elem);
             return new Promise(resolve => {
-                const dialog = mdc.dialog.MDCDialog.attachTo(elem);
+                const dialog = elem._dialog;
                 const callback = event => {
                     dialog.unlisten('MDCDialog:closing', callback);
                     resolve(event.detail.action);
@@ -32,6 +33,11 @@ window.BlazorMaterial = {
                 dialog.listen('MDCDialog:closing', callback);
                 dialog.open();
             });
+        },
+        hide: function (elem, dialogAction) {
+            if (elem._dialog) {
+                elem._dialog.close(dialogAction || 'dismissed');
+            }
         }
     },
 
