@@ -1,9 +1,9 @@
-﻿@inherits MdcComponentBase
+﻿@inherits MdcInputComponentBase<string>
 @inject IJSRuntime jsRuntime
     
 <div @ref="textFieldElem" class="mdc-text-field">
-    <input type="text" id=@id class="mdc-text-field__input"
-           value=@Value @onchange=@HandleTextChanged />
+    <input type="@Type" id=@id class="mdc-text-field__input @FieldClass"
+           @bind=@CurrentValue />
 
     <label class="mdc-floating-label" for=@id>@Label</label>
     <div class="mdc-line-ripple"></div>
@@ -13,15 +13,8 @@
     string id = Guid.NewGuid().ToString();
     ElementRef textFieldElem;
 
+    [Parameter] string Type { get; set; } = "text";
     [Parameter] string Label { get; set; }
-    [Parameter] string Value { get; set; }
-    [Parameter] EventCallback<string> ValueChanged { get; set; }
-
-    Task HandleTextChanged(UIChangeEventArgs changeEvent)
-    {
-        Value = (string)changeEvent.Value;
-        return ValueChanged.InvokeAsync(Value);
-    }
 
     protected override Task OnAfterFirstRenderAsync()
         => jsRuntime.InvokeAsync<object>(
