@@ -82,3 +82,7 @@ h1 {
 .mdc-drawer.mdc-drawer--open:not(.mdc-drawer--closing)+.mdc-drawer-app-content .mdc-top-app-bar {
     width: calc(100% - 256px);
 }
+
+.grouping {
+    margin: 10px;
+}
