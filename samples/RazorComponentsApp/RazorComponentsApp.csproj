@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <LangVersion>7.3</LangVersion>
-    <ComponentsPackageVersion>3.0.0-preview6.19305.13</ComponentsPackageVersion>
+    <ComponentsPackageVersion>3.0.0-preview7.19365.7</ComponentsPackageVersion>
   </PropertyGroup>
 
   <ItemGroup>

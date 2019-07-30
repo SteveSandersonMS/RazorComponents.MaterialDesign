@@ -4,13 +4,32 @@
 
 <p>See <code>TextField.cshtml</code> for sources.</p>
 
-<MdcTextField Label="Type in some text" @bind-Value="@currentValue" />
+<div class="grouping">
+    <MdcTextField Label="Type in some text" @bind-Value="@currentText" />
+    @if (currentText != null)
+    {
+        <p>You typed: <strong>@currentText</strong></p>
+    }
+</div>
 
-@if (currentValue != null)
-{
-    <p>You typed: <strong>@currentValue</strong></p>
-}
+<div class="grouping">
+    <MdcTextField Type="password" Label="Type in a password" @bind-Value="@currentPassword" />
+    @if (currentPassword != null)
+    {
+        <p>You typed: <strong>@currentPassword</strong></p>
+    }
+</div>
+
+<div class="grouping">
+    <MdcTextArea Label="Type in some lines of text" @bind-Value="@currentMultiLine" />
+    @if (currentMultiLine != null)
+    {
+        <p>You typed: <strong>@currentMultiLine</strong></p>
+    }
+</div>
 
 @functions {
-    string currentValue;
+    string currentText;
+    string currentPassword;
+    string currentMultiLine;
 }

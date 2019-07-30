@@ -1,0 +1,23 @@
+﻿@inherits MdcInputComponentBase<string>
+@inject IJSRuntime jsRuntime
+    
+<div @ref="textFieldElem" class="mdc-text-field  mdc-text-field--textarea">
+    <textarea id=@id class="mdc-text-field__input @FieldClass"
+           @bind="@CurrentValue" rows="@Rows" cols="@Cols" />
+
+    <label class="mdc-floating-label" for=@id>@Label</label>
+    <div class="mdc-line-ripple"></div>
+</div>
+
+@functions {
+    string id = Guid.NewGuid().ToString();
+    ElementRef textFieldElem;
+
+    [Parameter] string Label { get; set; }
+    [Parameter] int Rows { get; set; } = 4;
+    [Parameter] int Cols { get; set; } = 40;
+
+    protected override Task OnAfterFirstRenderAsync()
+        => jsRuntime.InvokeAsync<object>(
+                "BlazorMaterial.textField.init", textFieldElem);
+}
