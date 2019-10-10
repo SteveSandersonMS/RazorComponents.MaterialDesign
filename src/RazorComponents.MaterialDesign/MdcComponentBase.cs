@@ -8,13 +8,10 @@ namespace RazorComponents.MaterialDesign
 {
     public abstract class MdcComponentBase : ComponentBase
     {
-        bool isFirstRender = true;
-
-        protected override Task OnAfterRenderAsync()
+        protected override Task OnAfterRenderAsync(bool isFirstRender)
         {
             if (isFirstRender)
             {
-                isFirstRender = false;
                 return OnAfterFirstRenderAsync();
             }
             else

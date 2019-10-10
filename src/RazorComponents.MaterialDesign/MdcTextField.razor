@@ -11,12 +11,12 @@
 
 @functions {
     string id = Guid.NewGuid().ToString();
-    ElementRef textFieldElem;
+    ElementReference textFieldElem;
 
-    [Parameter] string Type { get; set; } = "text";
-    [Parameter] string Label { get; set; }
+    [Parameter] public string Type { get; set; } = "text";
+    [Parameter] public string Label { get; set; }
 
-    protected override Task OnAfterFirstRenderAsync()
-        => jsRuntime.InvokeAsync<object>(
+    protected async override Task OnAfterFirstRenderAsync()
+        => await jsRuntime.InvokeAsync<object>(
                 "BlazorMaterial.textField.init", textFieldElem);
 }

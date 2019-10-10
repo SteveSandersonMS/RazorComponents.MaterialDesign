@@ -21,9 +21,9 @@
 </ul>
 
 @functions {
-    [Parameter] IEnumerable<TItem> Items { get; set; }
-    [Parameter] RenderFragment<TItem> Icon { get; set; }
-    [Parameter] RenderFragment<TItem> Title { get; set; }
-    [Parameter] RenderFragment<TItem> Subtitle { get; set; }
-    [Parameter] RenderFragment<TItem> Actions { get; set; }
+    [Parameter] public IEnumerable<TItem> Items { get; set; }
+    [Parameter] public RenderFragment<TItem> Icon { get; set; }
+    [Parameter] public RenderFragment<TItem> Title { get; set; }
+    [Parameter] public RenderFragment<TItem> Subtitle { get; set; }
+    [Parameter] public RenderFragment<TItem> Actions { get; set; }
 }

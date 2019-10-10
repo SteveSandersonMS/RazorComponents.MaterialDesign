@@ -10,19 +10,19 @@
 </div>
 
 @functions {
-    [Parameter] string Label { get; set; }
-    [Parameter] RenderFragment ChildContent { get; set; }
-    [Parameter] string Value { get; set; }
-    [Parameter] EventCallback<string> ValueChanged { get; set; }
+    [Parameter] public string Label { get; set; }
+    [Parameter] public RenderFragment ChildContent { get; set; }
+    [Parameter] public string Value { get; set; }
+    [Parameter] public EventCallback<string> ValueChanged { get; set; }
 
-    ElementRef selectElem;
+    ElementReference selectElem;
 
-    Task OnValueChangedAsync(UIChangeEventArgs eventArgs)
+    Task OnValueChangedAsync(ChangeEventArgs eventArgs)
     {
         Value = (string)eventArgs.Value;
         return ValueChanged.InvokeAsync(Value);
     }
 
-    protected override Task OnAfterFirstRenderAsync()
-        => jsRuntime.InvokeAsync<object>("BlazorMaterial.select.init", selectElem);
+    protected override async Task OnAfterFirstRenderAsync()
+        => await jsRuntime.InvokeAsync<object>("BlazorMaterial.select.init", selectElem);
 }

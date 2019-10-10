@@ -14,15 +14,15 @@
 </div>
 
 @functions {
-    [Parameter] string Title { get; set; }
-    [Parameter] RenderFragment Body { get; set; }
-    [Parameter] RenderFragment Buttons { get; set; }
+    [Parameter] public string Title { get; set; }
+    [Parameter] public RenderFragment Body { get; set; }
+    [Parameter] public RenderFragment Buttons { get; set; }
 
-    ElementRef dialogElem;
+    ElementReference dialogElem;
 
-    public Task<string> ShowAsync()
-        => jsRuntime.InvokeAsync<string>("BlazorMaterial.dialog.show", dialogElem);
+    public async Task<string> ShowAsync()
+        => await jsRuntime.InvokeAsync<string>("BlazorMaterial.dialog.show", dialogElem);
 
-    public Task HideAsync()
-        => jsRuntime.InvokeAsync<string>("BlazorMaterial.dialog.hide", dialogElem);
+    public async Task HideAsync()
+        => await jsRuntime.InvokeAsync<string>("BlazorMaterial.dialog.hide", dialogElem);
 }

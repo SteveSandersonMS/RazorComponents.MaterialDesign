@@ -7,18 +7,18 @@
     public const string None = "";
     public const string Raised = "mdc-button--raised";
 
-    ElementRef buttonElem;
+    ElementReference buttonElem;
 
-    [Parameter] string Type { get; set; } = "button";
-    [Parameter] bool Enabled { get; set; } = true;
-    [Parameter] RenderFragment ChildContent { get; set; }
-    [Parameter] EventCallback OnClick { get; set; }
-    [Parameter] string ButtonStyle { get; set; } = Raised;
-    [Parameter] string Class { get; set; }
-    [Parameter] string DialogAction { get; set; }
+    [Parameter] public string Type { get; set; } = "button";
+    [Parameter] public bool Enabled { get; set; } = true;
+    [Parameter] public RenderFragment ChildContent { get; set; }
+    [Parameter] public EventCallback OnClick { get; set; }
+    [Parameter] public string ButtonStyle { get; set; } = Raised;
+    [Parameter] public string Class { get; set; }
+    [Parameter] public string DialogAction { get; set; }
 
-    protected override Task OnAfterFirstRenderAsync()
-        => jsRuntime.InvokeAsync<object>("BlazorMaterial.button.init", buttonElem);
+    protected override async Task OnAfterFirstRenderAsync()
+        => await jsRuntime.InvokeAsync<object>("BlazorMaterial.button.init", buttonElem);
 
     public static MarkupString Icon(string name)
         => (MarkupString)$"<i class=\"material-icons mdc-button__icon\">{name}</i>";

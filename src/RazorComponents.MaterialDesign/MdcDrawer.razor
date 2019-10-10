@@ -9,15 +9,15 @@
 </aside>
 
 @functions {
-    ElementRef drawerElem;
+    ElementReference drawerElem;
     bool isOpen;
     string CssClass => $"mdc-drawer mdc-drawer--dismissible { (StartOpen ? "mdc-drawer--open" : "") }";
 
-    [Parameter] RenderFragment ChildContent { get; set; }
-    [Parameter] bool StartOpen { get; set; }
-    [Parameter] bool CloseOnNavigate { get; set; } = true;
+    [Parameter] public RenderFragment ChildContent { get; set; }
+    [Parameter] public bool StartOpen { get; set; }
+    [Parameter] public bool CloseOnNavigate { get; set; } = true;
 
-    protected override void OnInit()
+    protected override void OnInitialized()
     {
         isOpen = StartOpen;
     }
@@ -39,8 +39,8 @@
         }
     }
 
-    protected override Task OnAfterRenderAsync()
-        => jsRuntime.InvokeAsync<object>(
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+        => await jsRuntime.InvokeAsync<object>(
             "BlazorMaterial.drawer.toggle",
             drawerElem,
             isOpen);
