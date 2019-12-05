@@ -19,7 +19,7 @@
 - [ ] Slider
 - [ ] SlideToggle
 - [x] Switch
-- [x] TextArea (new!)
+- [x] TextArea (new! alpha2)
 - [x] TextField
 
 ## Navigation
