@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <LangVersion>7.3</LangVersion>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>8.0</LangVersion>
     <RazorLangVersion>3.0</RazorLangVersion>
   </PropertyGroup>
 
@@ -13,7 +13,7 @@
   <!-- Pack settings -->
   <Target Name="PublishAll" BeforeTargets="_IntermediatePack">
     <PropertyGroup>
-      <PackageVersion>0.1.0-alpha-$([System.DateTime]::Now.ToString(yyyyMMddhhmmss))</PackageVersion>
+      <PackageVersion>0.1.0-alpha-$([System.DateTime]::Now.ToString(MMddhh))</PackageVersion>
     </PropertyGroup>
   </Target>
 
